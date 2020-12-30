@@ -24,7 +24,7 @@ h1 {
   margin: 3% auto;
 }
 fieldset {
-  background-color: rgb(212, 181, 161, 0.3);
+  background-color: rgb(212, 181, 161, 0.6);
   width: 40%;
   height: auto;
   margin: auto;
@@ -37,7 +37,7 @@ label {
   margin-top: 2rem;
   margin-left: 10%;
   font-size: 2rem;
-  color: white;
+  color: black;
   font-weight: 700;
 }
 input.input-form {
@@ -65,7 +65,7 @@ input.input-form {
 }
 p {
   font-size: 2rem;
-  color: white;
+  color: black;
   font-weight: 700;
   margin-top: 2rem;
 }
