@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mariana Pantelic">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Survey Form</title>
+</head>
+<body>
+    <main>
+        <h1 id="title">Survey Form</h1>
+        <p id="description">Thank you for taking the time to fill in this survey!</p>
+        <form id="survey-form" action="#" method="POST">
+            <fieldset>
+                <div>
+                    <label for="name" id="name-label" class="label-form">Name</label>
+                    <input type="text" id="name" name="name" class="input-form" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="email" id="email-label" class="label-form">Email</label>
+                    <input type="email" id="email" name="email" class="input-form"  placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <label for="number" id="number-label" class="label-form">Enter your age</label>
+                    <input type="number" id="number" name="number" class="input-form"  placeholder="Age" min="10" max="99">
+                </div>
+               <div>
+                    <label for="dropdown" class="label-form">What is you current occupation?</label>
+                    <select id="dropdown" name="occupation">
+                        <option disabled="" selected="" value="">Select current occupation</option>
+                        <option value="student">Student</option>
+                        <option value="full-time Job">Full-time Job</option>
+                        <option value="part-time Job">Part-time Job</option>
+                        <option value="other">Other</option>
+                    </select>
+               </div>
+               <div class="input-radio">
+                    <p>Would you recommend our services?</p>
+                    <div>
+                        <input type="radio" id="definitely" name="recommend" value="definitely">
+                        <label for="definitely">Definitely</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="maybe" name="recommend" value="maybe">
+                        <label for="maybe">Maybe</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="not-sure" name="recommend" value="not-sure">
+                        <label for="not-sure">Not sure</label>
+                    </div>
+               </div>
+               <div class="input-check">
+                   <p>What should we improve about our services?</p>
+                   <div>
+                        <input type="checkbox" id="quality" value="quality">
+                        <label for="quality"> Quality</label>
+                   </div>
+                <div>
+                    <input type="checkbox" id="time" value="time">
+                    <label for="time"> Delivery time</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="transparency" value="transparency">
+                    <label for="transparency"> Transparency</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="flexibility" value= "flexibility">
+                    <label for="flexibility"> Flexibility</label>
+                </div>
+               </div>
+               <div class="input-textarea">
+                   <p>Help us improve</p>
+                    <textarea name="message" rows="8" cols="30" placeholder="Enter your comment here..."></textarea>
+               </div>
+            <div class="submit-btn">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <div>&copy; 2020 Made by Mariana Pantelic. All rights reserved.</div>
+        <span>Photo by <a
+                href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Priscilla
+                Du Preez</a> on <a
+                href="https://unsplash.com/s/photos/thank-you?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+    </footer>
+</body>
+</html>

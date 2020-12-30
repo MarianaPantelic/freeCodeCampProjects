@@ -1,0 +1,116 @@
+:root {
+  font-size: 62.5%;
+}
+body {
+  width: 100%;
+  background-image: url(/img/priscilla-du-preez-M4FUKFJ73tM-unsplash.jpg);
+  background-size: cover;
+  margin: 0;
+}
+h1 {
+  font-size: 5rem;
+  margin-top: 15rem;
+}
+#title,
+#description {
+  text-align: center;
+  color: white;
+}
+#description {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+#survey-form {
+  margin: 3% auto;
+}
+fieldset {
+  background-color: rgb(212, 181, 161, 0.3);
+  width: 40%;
+  height: auto;
+  margin: auto;
+  border-radius: 2rem;
+}
+label.label-form {
+  display: block;
+}
+label {
+  margin-top: 2rem;
+  margin-left: 10%;
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+}
+input.input-form {
+  width: 80%;
+  font-size: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 1% auto;
+  margin-left: 10%;
+  opacity: 0.7;
+}
+::placeholder {
+  font-size: 2rem;
+  color: black;
+}
+#dropdown {
+  width: 85%;
+  padding: 2rem;
+  font-size: 2rem;
+  margin: 1% auto;
+  margin-left: 10%;
+  line-height: 1.5;
+  border-radius: 1rem;
+  opacity: 0.7;
+}
+p {
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+label.input-radio,
+label.input-check {
+  display: inline-block;
+}
+
+.input-radio,
+.input-check,
+.input-textarea {
+  margin-left: 10%;
+}
+.input-radio div,
+.input-check div {
+  margin-bottom: 3rem;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline-block;
+  transform: scale(2);
+}
+textarea {
+  width: 85%;
+  font-size: 2.5rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  opacity: 0.7;
+}
+.submit-btn {
+  width: 80%;
+  text-align: center;
+  display: block;
+  margin: 5% auto;
+}
+#submit {
+  width: 20%;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+footer {
+  background-color: rgb(212, 181, 161, 0.7);
+  padding: 3rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 25rem;
+}
