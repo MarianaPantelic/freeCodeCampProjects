@@ -14,7 +14,7 @@ For this challenge you will be presented with a string such as 800-692-7753 or 8
 
 
 
-//All the solutions are with regex, but i tried without
+// Without regex
 
 'use strict';
 
@@ -46,6 +46,15 @@ function telephoneCheck(str) {
 return check;
 }
 
+// With regex
+
+/*
+function telephoneCheck(str) {
+  var regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+
+  return regex.test(str);
+}
+*/
 
 
 console.log(telephoneCheck("555-555-5555"));
