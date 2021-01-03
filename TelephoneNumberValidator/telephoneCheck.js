@@ -14,6 +14,8 @@ For this challenge you will be presented with a string such as 800-692-7753 or 8
 
 
 
+//All the solutions are with regex, but i tried without
+
 'use strict';
 
 function telephoneCheck(str) {
@@ -21,15 +23,15 @@ function telephoneCheck(str) {
   var check = true;
   if(str.charAt(0) == "-") check = false;
   else{
-  var newStr = str.replace(/[^0-9().]/ig, "");
-  for(var i = 0; i < newStr.length; i++){
-    if(newStr.charAt(i) != "(" || newStr.charAt(i) != ")"){
-      if(newStr.length == 10) {check = true;
-      }else if(newStr.length == 11){
-        if(newStr.charAt(0) == 1) {check =true;
-        }else check = false;
+    var newStr = str.replace(/[^0-9().]/ig, "");
+    for(var i = 0; i < newStr.length; i++){
+        if(newStr.charAt(i) != "(" || newStr.charAt(i) != ")"){
+            if(newStr.length == 10) {check = true;
+            }else if(newStr.length == 11){
+                if(newStr.charAt(0) == 1) {check =true;
+            }else check = false;
+            } else check = false;
         } else check = false;
-    } else check = false;
     }
     
     if((newStr.charAt(0) == "(" && newStr.charAt(4) == ")") || (newStr.charAt(1) == "(" && newStr.charAt(5) == ")")){
@@ -51,25 +53,4 @@ console.log(telephoneCheck("1 555)555-5555"));
 console.log(telephoneCheck("-1 (757) 622-7382"));
 
 
-let x = "1 (((555)555-5555";
-x=x.replace(/[^0-9().]/ig, "");
 
-console.log(x);
-
-
-/*
- var check = true;
-  for(var i = 0; i < str.length/2; i++){
-  if(str.charAt(i) == "(" && str.charAt(i+4) == ")"){
-    str = str.replace(/[^0-9.]/ig, "");
-    if(str.length !== 10){
-        if(str.length !== 11) {
-            check = false;
-        } else if(str.charAt(0) != 1){
-            check = false;
-        } 
-    }
-  } else check = false;
-  }
-  return check;
-*/
