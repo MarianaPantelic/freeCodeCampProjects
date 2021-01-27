@@ -24,10 +24,14 @@ header.masthead {
   background-color: #343a40;
   background-image: url(../img/josh-redd-Q9S0w7Bhx3A-unsplash.jpg);
   background-repeat: no-repeat;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 header.masthead .overlay {
   position: absolute;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
 }
@@ -143,7 +147,14 @@ a:visited {
   color: crimson;
 }
 #video {
-  margin-left: 20%;
+  margin-left: 15%;
+}
+@media (max-width: 768px) {
+  #video {
+    width: 90%;
+    height: 13rem;
+    margin-left: 5%;
+  }
 }
 .flex {
   display: flex;
