@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mariana Pantelic">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Technical Documentation Page</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header class="active">Jump to section</header>
+        <a href="#description" class="nav-link">Description</a>
+        <a href="#defining_functions" class="nav-link">Defining functions</a>
+        <a href="#function_parameters" class="nav-link">Functions parameters</a>
+        <a href="#the_arguments_object" class="nav-link">The arguments object</a>
+        <a href="#defining_method_functions" class="nav-link">Defining method functions</a>
+        <a href="#block-level_functions" class="nav-link">Block-level functions</a>
+        <a href="#examples" class="nav-link">Examples</a>
+        <a href="#reference" class="nav-link">Reference</a>
+    </nav>
+
+    <div>
+        <div class="hero"></div>
+        <div class="learn"><span class="thanks">Photo by <a
+                href="https://unsplash.com/@elnazasadi?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">elnaz
+                asadi</a> on <a
+                href="https://unsplash.com/s/photos/laptop-grey?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></div>
+        <h1 id="home">Javascript Functions</h1>
+        <span class="thanks">Photo by <a
+            href="https://unsplash.com/@jannis_lucas?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jannis
+            Lucas</a> on <a
+            href="https://unsplash.com/s/photos/macbook?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+        </div>
+    <main id="main-doc">
+        <section class="main-section" id="description">
+            <header>Description</header>
+            <article>
+                <p>Every function in JavaScript is a Function object. See Function for information on properties and methods of Function
+                objects.</p>
+                <p>To return a value other than the default, a function must have a return statement that specifies the value to return. A
+                function without a return statement will return a default value. In the case of a constructor called with the new
+                keyword, the default value is the value of its this parameter. For all other functions, the default return value is
+                undefined.</p>
+                <p>The parameters of a function call are the function's arguments. Arguments are passed to functions by value. If the
+                function changes the value of an argument, this change is not reflected globally or in the calling function. However,
+                object references are values, too, and they are special: if the function changes the referred object's properties, that
+                change is visible outside the function, as shown in the following example:</p>
+                <div class="code">
+                    <p><code class="grey">/* Declare the function 'myFunc' */</code></p>
+                    <p><code><span class="blue">function</span><span class="red"> myFunc</span>(theObject) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;theObject.brand = "Toyota";</code></p>
+                    <p><code>}</code></p>
+                    <p><code class="grey">/*</code></p>
+                    <p><code class="grey">* Declare variable 'mycar';</code></p>
+                    <p><code class="grey">* create and initialize a new Object;</code></p>
+                    <p><code class="grey">* assign reference to it to 'mycar'</code></p>
+                    <p><code class="grey">*/</code></p>
+                    <p><code><span class="blue">var</span> mycar = {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;brand: <span class="green">"Honda"</span>,</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;model: <span class="green">"Accord"</span>,</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;year: <span class="lila">1998</span></code></p>
+                    <p><code>};</code></p>
+                    <p><code class="grey">/* Logs 'Honda' */</code></p>
+                    <p><code>console.log(<span class="red">mycar</span>.brand);</code></p>
+                    <p><code class="grey">/* Pass object reference to the function */</code></p>
+                    <p><code><span class="red">myFunc</span>(mycar);</code></p>
+                    <p><code class="grey">/*</code></p>
+                    <p><code class="grey">* Logs 'Toyota' as the value of the 'brand' property</code></p>
+                    <p><code class="grey">* of the object, as changed to by the function.</code></p>
+                    <p><code class="grey">*/</code></p>
+                    <p><code>console.log(mycar.brand);</code></p>
+                </div>
+                <p>The <span class="blue">this keyword</span> does not refer to the currently executing function, so you must refer to Function objects by name, even
+                within the function body.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="defining_functions">
+            <header>Defining functions</header>
+            <article>
+                <p>There are several ways to define functions:</p>
+
+                <h3>The function declaration (function statement)</h3>
+                <p>There is a special syntax for declaring functions:</p>
+                <div class="code">
+                    <p><code><span class="blue">function</span><span class="red"> name</span>([param[, param[, ... param]]]) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p class="thick">name</p>
+                <p>The function name.</p>
+                <p class="thick">param</p>
+                <p>The name of an argument to be passed to the function.</p>
+                <p class="thick">statements</p>
+                <p>The statements comprising the body of the function.</p>
+
+                <h3>The function expression (function expression)</h3>
+                <p>A function expression is similar to and has the same syntax as a function declaration. A function expression may be a part of a larger expression. One can define "named" function expressions (where
+                the name of the expression might be used in the call stack for example) or "anonymous" function expressions. Function
+                expressions are not hoisted onto the beginning of the scope, therefore they cannot be used before they appear in the
+                code.</p>
+                <div class="code">
+                    <p><code><span class="blue">function</span> [name]([param[, param[, ... param]]]) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p class="thick">name</p>
+                <p>The function name. Can be omitted, in which case the function becomes known as an anonymous function.</p>
+                <p class="thick">param</p>
+                <p>The name of an argument to be passed to the function.</p>
+                <p class="thick">statements</p>
+                <p>The statements comprising the body of the function.</p>
+                <p>Here is an example of an anonymous function expression (the name is not used):</p>
+                <div class="code">
+                    <p><code><span class="blue">var</span><span class="red">myFunction</span> = <span class="blue">function</span>() {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p>It is also possible to provide a name inside the definition in order to create a named function expression:</p>
+                <div class="code">
+                    <p><code><span class="blue">var</span><span class="red">myFunction</span> = <span class="blue">function</span><span class="red">namedFunction</span>() {</code>
+                    </p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p>One of the benefits of creating a named function expression is that in case we encountered an error, the stack trace
+                will contain the name of the function, making it easier to find the origin of the error.</p>
+                <p>As we can see, both examples do not start with the function keyword. Statements involving functions which do not start
+                with function are function expressions.</p>
+                <p>When functions are used only once, a common pattern is an IIFE (Immediately Invoked Function Expression).</p>
+                <div class="code">
+                    <p><code>(<span class="blue">function</span> () {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>})();</code></p>
+                </div>
+                <p>IIFE are function expressions that are invoked as soon as the function is declared.</p>
+
+                <h3>The generator function declaration (function* statement)</h3>
+                <p>There is a special syntax for generator function declarations (see function* statement for details):</p>
+                <div class="code">
+                    <p><code><span class="blue">function</span>*<span class="red"> name</span>([param[, param[, ... param]]]) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p class="thick">name</p>
+                <p>The function name.</p>
+                <p class="thick">param</p>
+                <p>The name of an argument to be passed to the function.</p>
+                <p class="thick">statements</p>
+                <p>The statements comprising the body of the function.</p>
+                
+                <h3>The generator function expression (function* expression)</h3>
+                <p>A generator function expression is similar to and has the same syntax as a generator function declaration:</p>
+                <div class="code">
+                    <p><code><span class="blue">function</span>* [name]([param[, param[, ... param]]]) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p class="thick">name</p>
+                <p>The function name. Can be omitted, in which case the function becomes known as an anonymous function.</p>
+                <p class="thick">param</p>
+                <p>The name of an argument to be passed to the function.</p>
+                <p class="thick">statements</p>
+                <p>The statements comprising the body of the function.</p>
+                
+                <h3>The arrow function expression (=>)</h3>
+                <p>An arrow function expression has a shorter syntax and lexically binds its this value:</p>
+                <div class="code">
+                    <p><code>([param[, param]]) => {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;statements</code></p>
+                    <p><code>}</code></p>
+                    <p><code>param => expression</code></p>
+                </div>
+                <p class="thick">param</p>
+                <p>The name of an argument. Zero arguments need to be indicated with (). For only one argument, the parentheses are not
+                required. (like foo => 1)</p>
+                <p class="thick">statements or expression</p>
+                <p>Multiple statements need to be enclosed in brackets. A single expression requires no brackets. The expression is also
+                the implicit return value of the function.</p>
+
+                <h3>The Function constructor</h3>
+                <p>As all other objects, Function objects can be created using the new operator:</p>
+                <div class="code">
+                    <p><code><span class="blue">new</span><span class="red"> Function</span>(arg1, arg2, ... argN, functionBody)</code></p>
+                </div>
+                <p class="thick">arg1, arg2, ... argN</p>
+                <p>Zero or more names to be used by the function as formal parameters. Each must be a proper JavaScript identifier.</p>
+                <p class="thick">functionBody</p>
+                <p>A string containing the JavaScript statements comprising the function body.</p>
+                <p>Invoking the Function constructor as a function (without using the new operator) has the same effect as invoking it as a
+                constructor.</p>
+
+                <h3>The GeneratorFunction constructor</h3>
+                <p>As all other objects,  <span class="blue">GeneratorFunction</span> objects can be created using the new operator:</p>
+                <div class="code">
+                    <p><code><span class="blue">new</span><span class="red"> GeneratorFunction</span> (arg1, arg2, ... argN, functionBody)</code>
+                    </p>
+                </div>
+                <p class="thick">arg1, arg2, ... argN</p>
+                <p>Zero or more names to be used by the function as formal argument names. Each must be a string that conforms to the rules
+                for a valid JavaScript identifier or a list of such strings separated with a comma; for example "x", "theValue", or
+                "a,b".</p>
+                <p class="thick">functionBody</p>
+                <p>A string containing the JavaScript statements comprising the function definition.</p>
+                <p>Invoking the GeneratorFunction constructor as a function (without using the new operator) has the same effect as
+                invoking it as a constructor.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="function_parameters">
+            <header>Function parameters</header>
+            <article>
+                <h3>Default parameters</h3>
+                <p>Default function parameters allow formal parameters to be initialized with default values if no value or undefined is
+                passed.</p>
+
+                <h3>Rest parameters</h3>
+                <p>The rest parameter syntax allows representing an indefinite number of arguments as an array.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="the_arguments_object">
+            <header>The arguments object</header>
+            <article>
+                <p>You can refer to a function's arguments within the function by using the arguments object.</p>
+                <ul>
+                    <li><span class="blue">arguments</span>: An array-like object containing the arguments passed to the currently executing function.</li>
+                    <li><span class="blue">arguments.callee</span>: The currently executing function.</li>
+                    <li><span class="blue">arguments.caller</span>: The function that invoked the currently executing function.</li>
+                    <li><span class="blue">arguments.length</span>: The number of arguments passed to the function.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="defining_method_functions">
+            <header>Defining method functions</header>
+            <article>
+                <h3>Getter and setter functions</h3>
+                <p>You can define getters (accessor methods) and setters (mutator methods) on any standard built-in object or user-defined
+                object that supports the addition of new properties. The syntax for defining getters and setters uses the object literal
+                syntax.</p>
+                <ul>
+                    <li><p class="blue"><b>get</b></p></li>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Binds an object property to a function that will be called when that property is looked up.</p>
+                    <li><p class="blue"><b>set</b></p></li>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Binds an object property to a function to be called when there is an attempt to set that property.</p>
+                </ul>
+
+                <h3>Method definition syntax</h3>
+                <p>Starting with ECMAScript 2015, you are able to define own methods in a shorter syntax, similar to the getters and
+                setters.</p>
+                <div class="code">
+                    <p><code><span class="blue">var</span> obj = {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">foo</span>() {},</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">bar</span>() {},</code></p>
+                    <p><code>};</code></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="main-section" id="block-level_functions">
+            <header>Block-level functions</header>
+            <article>
+                <p>In strict mode, starting with ES2015, functions inside blocks are now scoped to that block. Prior to ES2015, block-level
+                functions were forbidden in strict mode.</p>
+                <div class="code">
+                    <p><code><span class="green">'use strict'</span>;</code></p>
+                    <p><code><span class="blue">function</span><span class="red">f</span>() {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">return</span><span class="red">1</span>;</code></p>
+                    <p><code>}</code></p>
+                    <p><code>{</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">function</span><span class="red">f</span>() {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">return</span><span class="red">2</span>;</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;}</code></p>
+                    <p><code>}</code></p>
+                    <p><code><span class="red">f</span>() === <span class="red">1</span>; // true</code></p>
+                    <p><code>// f() === 2 in non-strict mode</code></p>
+                </div>
+
+                <h3>Block-level functions in non-strict code</h3>
+                <p>In a word: Don't.</p>
+                <p>In non-strict code, function declarations inside blocks behave strangely. For example:</p>
+                <div class="code">
+                    <p><code><span class="blue">if</span>(shouldDefineZero) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">function</span><span class="red">zero</span>() { // DANGER: compatibility risk</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="green">"This is zero."</span>);</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;}</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p>ES2015 says that if shouldDefineZero is false, then zero should never be defined, since the block never executes.
+                However, it's a new part of the standard. Historically, this was left unspecified, and some browsers would define zero
+                whether the block executed or not.</p>
+                <p>In strict mode, all browsers that support ES2015 handle this the same way: zero is defined only if shouldDefineZero is
+                true, and only in the scope of the if-block.</p>
+                <p>A safer way to define functions conditionally is to assign a function expression to a variable:</p>
+                <div class="code">
+                    <p><code><span class="blue">var</span>zero;</code></p>
+                    <p><code><span class="blue">if</span>(shouldDefineZero) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">zero</span> = <span class="blue">function</span>() {</code>
+                    </p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="green">"This is zero."</span>);</code>
+                    </p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;};</code></p>
+                    <p><code>}</code></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="main-section" id="examples">
+            <header>Examples</header>
+            <article>
+                <h3>Returning a formatted number</h3>
+                <p>The following function returns a string containing the formatted representation of a number padded with leading zeros.</p>
+                <div class="code">
+                    <p><code>// This function returns a string padded with leading zeros</code></p>
+                    <p><code><span class="blue">function</span><span class="red">padZeros</span>(num, totalLen) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">var</span>numStr = num.<span class="red">toString</span>();&nbsp;&nbsp;&nbsp;&nbsp; // Initialize return value as string</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">var</span>numZeros = totalLen - numStr.length; // Calculate no. of zeros</code></p>
+                    <p><code><span class="blue">for</span> (<span class="blue">var</span>i =<span>1</span>; i <= numZeros; i++) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numStr =<span class="green">"0"</span>+ numStr;</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;}</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">return</span>numStr;</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p>The following statements call the padZeros function.</p>
+                <div class="code">
+                    <p><code><span class="blue">var</span> result;</code></p>
+                    <p><code>result = <span class="red">padZeros</span>(42,4); // returns "0042"</code></p>
+                    <p><code>result = <span class="red">padZeros</span>(42,2); // returns "42"</code></p>
+                    <p><code>result = <span class="red">padZeros</span>(5,4); // returns "0005"</code></p>
+                </div>
+
+                <h3>Determining whether a function exists</h3>
+                <p>You can determine whether a function exists by using the typeof operator. In the following example, a test is performed
+                to determine if the window object has a property called noFunc that is a function. If so, it is used; otherwise, some
+                other action is taken.</p>
+                <div class="code">
+                    <p><code><span class="blue">if</span> (<span class="green">'function'</span> === <span class="blue">typeof</span>window.noFunc) {</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;// use noFunc()</code></p>
+                    <p><code>}<span class="blue">else</span>{</code></p>
+                    <p><code>&nbsp;&nbsp;&nbsp;&nbsp;// do something else</code></p>
+                    <p><code>}</code></p>
+                </div>
+                <p>Note that in the if test, a reference to noFunc is used—there are no brackets "()" after the function name so the actual
+                function is not called.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="reference">
+            <header>Reference</header>
+            <article>
+                <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions">MDN</a></p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div>&copy; 2021 Made by Mariana Pantelic. All rights reserved.</div>
+    </footer>
+</body>
+</html>
