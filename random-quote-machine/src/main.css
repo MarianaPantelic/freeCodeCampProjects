@@ -16,5 +16,9 @@ body {
   border-radius: 10px 10px;
 }
 #text {
-  margin: 10% 5%;
+  margin: 10% 5% 5% 5%;
+}
+#author {
+  float: right;
+  margin-right: 15%;
 }

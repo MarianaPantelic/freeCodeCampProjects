@@ -34,11 +34,11 @@ const App = () => {
 
     useEffect(() => {
         getQuotes().then(data => {
-            setState({quotes: data})
+            setState({quotes: data});
         })
     },[])
     
-    console.log(state.quotes)
+    
 
     const generateNewQuote = () => {
         alert('hi')
@@ -52,13 +52,16 @@ const App = () => {
         <div className="container">
 
             <div className="row">
+                {state.quotes.length > 0 ?
                 <div className="col-sm-8 mx-auto" id="quote-box">
-                    <h2 className="text-center" id="text"><i class="fas fa-quote-left"></i><i class="fas fa-quote-right"></i></h2>
-                    <p id="author"></p>
-                    <a href="twitter.com" id="tweet-quote"><i class="fab fa-twitter fa-2x"></i></a>
+                    <h2 className="text-center" id="text"><i class="fas fa-quote-left"></i> {state.quotes[0].text} <i class="fas fa-quote-right"></i></h2>
+                    <p id="author">- {state.quotes[0].author}</p>
+                    <a href="twitter.com/intent/tweet" id="tweet-quote"><i class="fab fa-twitter fa-2x"></i></a>
                     <button className="btn bg-dark text-light" id="new-quote" onClick={generateNewQuote}>New Quote</button>
                     
-                </div>
+                </div> 
+                : null
+                }
             </div>
         </div>
         </>
