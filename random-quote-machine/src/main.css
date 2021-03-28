@@ -10,9 +10,9 @@ body {
   object-fit: cover;
 }
 #quote-box {
-  height: 300px;
+  height: 330px;
   background-color: white;
-  margin-top: 25%;
+  margin-top: 27%;
   border-radius: 10px 10px;
 }
 #text {
@@ -21,4 +21,11 @@ body {
 #author {
   float: right;
   margin-right: 15%;
+}
+#new-quote {
+  margin: 5% 0 0 15%;
+}
+#tweet-quote {
+  float: right;
+  margin: 0 10% 0 30%;
 }

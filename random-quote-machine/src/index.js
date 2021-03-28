@@ -55,10 +55,11 @@ const App = () => {
                 {state.quotes.length > 0 ?
                 <div className="col-sm-8 mx-auto" id="quote-box">
                     <h2 className="text-center" id="text"><i class="fas fa-quote-left"></i> {state.quotes[0].text} <i class="fas fa-quote-right"></i></h2>
-                    <p id="author">- {state.quotes[0].author}</p>
-                    <a href="twitter.com/intent/tweet" id="tweet-quote"><i class="fab fa-twitter fa-2x"></i></a>
-                    <button className="btn bg-dark text-light" id="new-quote" onClick={generateNewQuote}>New Quote</button>
-                    
+                    <h3 id="author">- {state.quotes[0].author}</h3>
+                    <div>
+                        <button className="btn bg-dark text-light" id="new-quote" onClick={generateNewQuote}>New Quote</button>
+                        <a href="twitter.com/intent/tweet" id="tweet-quote"><i class="fab fa-twitter fa-2x text-dark"></i></a>
+                    </div>
                 </div> 
                 : null
                 }
