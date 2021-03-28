@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './main.css'
@@ -39,10 +39,19 @@ const App = () => {
     },[])
     
     
+    let textRef = useRef();
+    let authorRef = useRef();
+    
+
+    
 
     const generateNewQuote = () => {
-        alert('hi')
+        let randomNumber = Math.floor(Math.random() * state.quotes.length)
+        textRef.current.textContent = state.quotes[randomNumber].text 
+        authorRef.current.textContent = state.quotes[randomNumber].author
     }
+
+    
 
     return (
         <>
@@ -54,10 +63,10 @@ const App = () => {
             <div className="row">
                 {state.quotes.length > 0 ?
                 <div className="col-sm-8 mx-auto" id="quote-box">
-                    <h2 className="text-center" id="text"><i class="fas fa-quote-left"></i> {state.quotes[0].text} <i class="fas fa-quote-right"></i></h2>
-                    <h3 id="author">- {state.quotes[0].author}</h3>
+                    <h2 className="text-center" id="text"><i class="fas fa-quote-left"></i> <span ref = {textRef}>{state.quotes[0].text}</span><i class="fas fa-quote-right"></i></h2>
+                    <h3 id="author">- <span ref = {authorRef}>{state.quotes[0].author}</span></h3>
                     <div>
-                        <button className="btn bg-dark text-light" id="new-quote" onClick={generateNewQuote}>New Quote</button>
+                        <button className="btn bg-dark text-light" id="new-quote" onClick = {generateNewQuote}>New Quote</button>
                         <a href="twitter.com/intent/tweet" id="tweet-quote"><i class="fab fa-twitter fa-2x text-dark"></i></a>
                     </div>
                 </div> 
