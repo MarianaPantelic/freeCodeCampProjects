@@ -8,7 +8,7 @@ let marked = require("marked");
 
 const App = () => {
 
-    const [state, setState] = useState({text: `# Markdown\n## Markdown\n[Check my code at:](https://github.com/MarianaPantelic/freeCodeCampProjects/tree/main/markdown-previewer)`})
+    const [state, setState] = useState({text: "# Markdown\n## Markdown\n[Check my **code** at:](https://github.com/MarianaPantelic/freeCodeCampProjects/tree/main/markdown-previewer)\n\n`This is inline code block`\n\n![Markdown Image](/download.png)\n\n<pre><code>This is code block\n\nSecond line</code></pre>\n* This is a list item\n\n> Enjoy"})
 
     const getText = (text) => {
         console.log(text)
