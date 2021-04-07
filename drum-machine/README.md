@@ -1,4 +1,4 @@
-![Result](/src/result.png)
+![Result](./src/result.png)
 
 # Getting Started with Create React App
 
