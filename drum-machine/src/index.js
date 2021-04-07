@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -58,26 +58,30 @@ const App = () => {
 
     const [state, setState] = useState({clickedKey: ''})
 
-    const playSound = (idx, key) => {
-       console.log(key)
-        const mp3 = document.getElementById(`${key}`);
-       const playPromise = mp3.play();
+    window.document.onkeypress = function(e) {
+        console.log(e.key);
+        const mp3 = document.getElementById(`${e.key.toUpperCase()}`)
+        const playPromise = mp3.play();
         if (playPromise !== null){
             playPromise.catch(() => { mp3.play(); })
         }
-        setState({clickedKey: key})
-        document.getElementById('display').innerText= sounds[idx].title
+    
+    }
+   
+    const playSound = (e) => {
+        console.log(e.currentTarget.value)
+            const mp3 = document.getElementById(`${e.currentTarget.value}`)
+        const playPromise = mp3.play();
+            if (playPromise !== null){
+                playPromise.catch(() => { mp3.play(); })
+            }
+            
+            document.getElementById('display').innerText= sounds[e.currentTarget.id].title
+            setState({clickedKey: e.currentTarget.value})
         
     }
    
-    
-   window.document.onkeyup = function(e) {
-       console.log(e.key)
-       console.log(state.clickedKey);
-        if(e.key === state.clickedKey){
-            playSound(state.clickedKey)
-        }
-    }
+    console.log(state.clickedKey)
 
     return (
         <Container>
@@ -85,7 +89,7 @@ const App = () => {
                 <Col lg={6} id="drum-machine">
                     <div className = "buttons">
                        {sounds.map((elem, idx) => (
-                           <button className="drum-pad" key={idx} id={idx} onClick={()=>playSound(idx, elem.key)} >
+                           <button className="drum-pad" key={idx} value={elem.key} id={idx} onClick={(e)=>playSound(e)}>
                                {elem.key}
                                <audio src={elem.sound} className='clip' id={elem.key}/>
                            </button>
