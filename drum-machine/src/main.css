@@ -3,12 +3,12 @@ body {
 }
 #drum-machine {
   width: 500px;
-  height: 500px;
+  height: 570px;
   margin: 20% auto;
   background-color: rgba(255, 255, 255, 0.568);
   border-radius: 10px 10px;
 }
-#display {
+.buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -26,4 +26,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: blueviolet;
+}
+#display {
+  text-align: center;
+  font-size: 50px;
 }
