@@ -1,0 +1,63 @@
+body {
+  background-image: url(/src/mathematics-1509559_1920.jpg);
+  background-size: cover;
+}
+#calculator {
+  width: 400px;
+  height: 600px;
+  margin: 10% auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 30px 30px;
+}
+#display {
+  width: 400px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.double {
+  width: 200px;
+  height: 100px;
+  font-size: 40px;
+  background-color: gray;
+}
+.simple {
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  background-color: gray;
+}
+#equals {
+  width: 100px;
+  height: 200px;
+  font-size: 50px;
+  background-color: rgb(38, 196, 38);
+}
+#zero {
+  margin-top: -100px;
+}
+#decimal {
+  margin-top: -100px;
+}
+#clear {
+  background-color: magenta;
+}
+#zero,
+#one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine {
+  background-color: lightgray;
+}
