@@ -6,10 +6,14 @@ import wecal from 'wecal'
 
 const App = () => {
 
-    const [state, setState] = useState({output: ""})
+    const [state, setState] = useState({output: "0"})
 
     const updateOutput = (e) => {
-        let newOutput = state.output + e.currentTarget.value
+        let stateOutput = state.output
+        if(stateOutput[0] === "0"){
+            stateOutput = stateOutput.slice(1, 0)
+        }
+        let newOutput = stateOutput + e.currentTarget.value
         console.log(newOutput);
         document.getElementById('display').innerHTML = newOutput
         setState({output: newOutput})
@@ -21,8 +25,10 @@ const App = () => {
     }
 
     const calculate = () => {
-        let x=state.output
-        let value = wecal.dealBracket(x)
+        let stateOutput = state.output;
+        
+        
+        let value = wecal.dealBracket(stateOutput)
         setState({output: value})
     }
 
