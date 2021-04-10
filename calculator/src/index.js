@@ -13,8 +13,28 @@ const App = () => {
         if(stateOutput[0] === "0"){
             stateOutput = stateOutput.slice(1, 0)
         }
+       
         let newOutput = stateOutput + e.currentTarget.value
         console.log(newOutput);
+        if(newOutput.includes('..')){
+            newOutput = newOutput.replace('..','.')
+        } 
+        let arr = newOutput.split('+' || '-' || '/' || '*')
+        console.log(arr);
+        for(let j = 0; j < arr.length; j++){
+            let indices = [];
+            for(let i = 0; i < arr[j].length; i++) {
+                if (arr[j][i] === '.') indices.push(i);
+            }
+            if(indices.length > 1){
+                for(let i = 1; i < indices.length; i++) {
+                    arr[j] = arr[j].substring(0,indices[i]) + arr[j].substring(indices[i]+1, arr[j].length);
+                }
+            } 
+            console.log([indices])
+        }
+        newOutput = arr.join("")
+        
         document.getElementById('display').innerHTML = newOutput
         setState({output: newOutput})
     }
