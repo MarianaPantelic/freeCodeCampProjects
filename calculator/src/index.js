@@ -19,7 +19,7 @@ const App = () => {
         if(newOutput.includes('..')){
             newOutput = newOutput.replace('..','.')
         } 
-        let arr = newOutput.split('+' || '-' || '/' || '*')
+        /* let arr = newOutput.split('+' || '-' || '/' || '*')
         console.log(arr);
         for(let j = 0; j < arr.length; j++){
             let indices = [];
@@ -33,7 +33,7 @@ const App = () => {
             } 
             console.log([indices])
         }
-        newOutput = arr.join("")
+        newOutput = arr.join("") */
         
         document.getElementById('display').innerHTML = newOutput
         setState({output: newOutput})
