@@ -1,0 +1,7 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url(../src/img/banner-1050602_1920.jpg);
+  background-size: cover;
+  background-position: center;
+}
